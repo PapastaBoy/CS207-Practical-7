@@ -40,7 +40,7 @@ public class main {
 
     public static void main(String[] args) {
         players = new ArrayList<>();
-        readFile("C:/Users/conno/Documents/uni/CS207/Practical7/src/Players.txt");
+        readFile("src/Players.txt");
         // Unsorted
         for (Player player : players) {
             System.out.println(player.getPlayerName() + " " + player.getTeamName() + " " + player.getScore());
@@ -62,7 +62,15 @@ public class main {
         Collections.sort(players, new Comparator<Player>() {
             @Override
             public int compare(Player o1, Player o2) {
-                return o1.getPlayerName().compareTo(o2.getPlayerName());
+                String x1 = o1.getTeamName();
+                String x2 = o2.getTeamName();
+                int sComp = x1.compareTo(x2);
+
+                if (sComp != 0) {return sComp;}
+
+                String y1 = o1.getPlayerName();
+                String y2 = o2.getPlayerName();
+                return y1.compareTo(y2);
             }
         });
         for (Player player : players) {
